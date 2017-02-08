@@ -1,4 +1,4 @@
-# LYLAlertView
+# LYLAlertView 给点个Star支持一下吧！3Q！
 效果不错的弹框提醒-成功，失败和提醒状态，便于自定义颜色样式！
 
 
