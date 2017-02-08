@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baoer.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="cjH-Jk-Jsi">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ys-Xg-edX">
+                    <rect key="frame" x="197.5" y="333" width="100" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Vee-mD-eWh"/>
+                        <constraint firstAttribute="width" constant="100" id="eLJ-1m-H4s"/>
+                    </constraints>
+                    <state key="normal" title="代理"/>
+                    <connections>
+                        <action selector="PromptPlayAction:" destination="-1" eventType="touchUpInside" id="feV-a4-6tZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeA-n5-maj">
+                    <rect key="frame" x="197.5" y="172" width="100" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="FVq-VL-0sm"/>
+                        <constraint firstAttribute="width" constant="100" id="bjX-Mv-AFK"/>
+                    </constraints>
+                    <state key="normal" title="失败"/>
+                    <connections>
+                        <action selector="PromptPlayAction:" destination="-1" eventType="touchUpInside" id="85d-al-Zcy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvS-ka-t0e">
+                    <rect key="frame" x="197.5" y="283" width="100" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="n1b-Yw-RE2"/>
+                        <constraint firstAttribute="width" constant="100" id="pkJ-H4-bUw"/>
+                    </constraints>
+                    <state key="normal" title="自定义颜色"/>
+                    <connections>
+                        <action selector="PromptPlayAction:" destination="-1" eventType="touchUpInside" id="NuW-hm-P0o"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSE-oV-Qz0">
+                    <rect key="frame" x="197.5" y="233" width="100" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LTD-ty-QfD"/>
+                        <constraint firstAttribute="width" constant="100" id="XaY-3O-RYq"/>
+                    </constraints>
+                    <state key="normal" title="警告"/>
+                    <connections>
+                        <action selector="PromptPlayAction:" destination="-1" eventType="touchUpInside" id="hOS-EE-f5w"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACB-ME-OoH">
+                    <rect key="frame" x="197.5" y="122" width="100" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="bOP-fA-pa0"/>
+                        <constraint firstAttribute="height" constant="30" id="ziw-xI-fMG"/>
+                    </constraints>
+                    <state key="normal" title="成功"/>
+                    <connections>
+                        <action selector="PromptPlayAction:" destination="-1" eventType="touchUpInside" id="Vn1-5E-yIY"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ACB-ME-OoH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="60" id="0Zd-Si-nhB"/>
+                <constraint firstItem="VSE-oV-Qz0" firstAttribute="top" secondItem="eeA-n5-maj" secondAttribute="bottom" constant="31" id="4xW-kj-xx4"/>
+                <constraint firstItem="eeA-n5-maj" firstAttribute="centerX" secondItem="ACB-ME-OoH" secondAttribute="centerX" id="9S8-2i-yYC"/>
+                <constraint firstItem="WvS-ka-t0e" firstAttribute="top" secondItem="VSE-oV-Qz0" secondAttribute="bottom" constant="20" id="Bun-WT-rlM"/>
+                <constraint firstItem="cjH-Jk-Jsi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DsX-bB-JqJ"/>
+                <constraint firstAttribute="trailing" secondItem="cjH-Jk-Jsi" secondAttribute="trailing" id="Lpi-0C-ish"/>
+                <constraint firstAttribute="bottom" secondItem="cjH-Jk-Jsi" secondAttribute="bottom" id="WPI-7r-k3k"/>
+                <constraint firstItem="ACB-ME-OoH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="122" id="bLh-y4-M18"/>
+                <constraint firstItem="4Ys-Xg-edX" firstAttribute="centerX" secondItem="ACB-ME-OoH" secondAttribute="centerX" id="d7a-OG-28d"/>
+                <constraint firstItem="WvS-ka-t0e" firstAttribute="centerX" secondItem="ACB-ME-OoH" secondAttribute="centerX" id="heX-Yh-FCm"/>
+                <constraint firstItem="4Ys-Xg-edX" firstAttribute="top" secondItem="WvS-ka-t0e" secondAttribute="bottom" constant="20" id="hlS-oD-6tu"/>
+                <constraint firstItem="VSE-oV-Qz0" firstAttribute="centerX" secondItem="ACB-ME-OoH" secondAttribute="centerX" id="hmF-kq-AXQ"/>
+                <constraint firstItem="eeA-n5-maj" firstAttribute="top" secondItem="ACB-ME-OoH" secondAttribute="bottom" constant="20" id="k6b-fa-h5W"/>
+                <constraint firstItem="cjH-Jk-Jsi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mGz-bL-6rl"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="baoer.jpeg" width="720" height="1280"/>
+    </resources>
+</document>
