@@ -108,22 +108,7 @@
 }
 
 
-- (UIView*) alertPopupView
-{
-    UIView * alertSquare = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 150)];
-    
-    alertSquare.backgroundColor = [UIColor colorWithRed:0.937 green:0.937 blue:0.937 alpha:1];
-    alertSquare.center = CGPointMake([self screenFrame].size.width/2, -[self screenFrame].size.height/2);
-    
-    [alertSquare.layer setShadowColor:[UIColor blackColor].CGColor];
-    [alertSquare.layer setShadowOpacity:0.4];
-    [alertSquare.layer setShadowRadius:20.0f];
-    [alertSquare.layer setShadowOffset:CGSizeMake(0.0, 0.0)];
-    
-    [self performScreenshotAndBlur];
-    
-    return alertSquare;
-}
+
 
 
 - (void) show
@@ -254,51 +239,9 @@
 }
 
 
-- (void) setColorForButton:(UIColor*) color onButton:(UIButton*) btn withType:(AlertType)type
-{
-    if (color)
-    {
-        btn.backgroundColor = color;
-    }
-    else
-    {
-        switch (type) {
-            case AlertSuccess:
-                btn.backgroundColor = GREENCOLOR;
-                break;
-            case AlertFailure:
-                btn.backgroundColor = REDCOLOR;
-                break;
-            case AlertInfo:
-                btn.backgroundColor = BLUECOLOR;
-                break;
-                
-            default:
-                break;
-        }
-    }
-    
-}
 
-- (void) setTitleFont:(UIFont *)titleFont
-{
-    [_titleLabel setFont:titleFont];
-}
 
-- (void) setTextFont:(UIFont *)textFont
-{
-    [_textLabel setFont:textFont];
-}
 
--(void) setTitleText:(NSString*) string
-{
-    _titleLabel.text = string;
-}
-
--(void) setMessageText:(NSString*) string
-{
-    _textLabel.text = string;
-}
 
 #pragma mark - Animations
 
@@ -454,6 +397,94 @@
 }
 
 
+
+#pragma mark - set
+- (UIView*) alertPopupView
+{
+    UIView * alertSquare = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 150)];
+    
+    alertSquare.backgroundColor = [UIColor colorWithRed:0.937 green:0.937 blue:0.937 alpha:1];
+    alertSquare.center = CGPointMake([self screenFrame].size.width/2, -[self screenFrame].size.height/2);
+    
+    [alertSquare.layer setShadowColor:[UIColor blackColor].CGColor];
+    [alertSquare.layer setShadowOpacity:0.4];
+    [alertSquare.layer setShadowRadius:20.0f];
+    [alertSquare.layer setShadowOffset:CGSizeMake(0.0, 0.0)];
+    
+    [self performScreenshotAndBlur];
+    
+    return alertSquare;
+}
+- (void) setColorForButton:(UIColor*) color onButton:(UIButton*) btn withType:(AlertType)type
+{
+    if (color)
+    {
+        btn.backgroundColor = color;
+    }
+    else
+    {
+        switch (type) {
+            case AlertSuccess:
+                btn.backgroundColor = GREENCOLOR;
+                break;
+            case AlertFailure:
+                btn.backgroundColor = REDCOLOR;
+                break;
+            case AlertInfo:
+                btn.backgroundColor = BLUECOLOR;
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+}
+- (void) setTitleFont:(UIFont *)titleFont
+{
+    [_titleLabel setFont:titleFont];
+}
+
+- (void) setTextFont:(UIFont *)textFont
+{
+    [_textLabel setFont:textFont];
+}
+
+-(void) setTitleText:(NSString*) string
+{
+    _titleLabel.text = string;
+}
+
+-(void) setMessageText:(NSString*) string
+{
+    _textLabel.text = string;
+}
+#pragma mark other
+- (void) setCornerRadius:(float)cornerRadius
+{
+    [alertView.layer setCornerRadius:cornerRadius];
+}
+- (CGRect) screenFrame
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    return screenRect;
+}
+
+
+
+-(UIImage *)convertViewToImage
+{
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    CGRect rect = [keyWindow bounds];
+    UIGraphicsBeginImageContextWithOptions(rect.size,YES,0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [keyWindow.layer renderInContext:context];
+    UIImage *capturedScreen = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return capturedScreen;
+}
+
+
 - (void) dismissAlertView
 {
     id<LYLAlertViewDelegate> delegate = self.delegate;
@@ -470,43 +501,6 @@
                          if ([delegate respondsToSelector:@selector(alertViewDidDismiss:)]) [delegate alertViewDidDismiss:self];
                      }];
 }
-
-
-#pragma mark - Miscellaneous
-
-- (void) setCornerRadius:(float)cornerRadius
-{
-    [alertView.layer setCornerRadius:cornerRadius];
-}
-
-
-- (CGRect) screenFrame
-{
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    return screenRect;
-}
-
-
--(UIImage *)convertViewToImage
-{
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    CGRect rect = [keyWindow bounds];
-    UIGraphicsBeginImageContextWithOptions(rect.size,YES,0.0f);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [keyWindow.layer renderInContext:context];
-    UIImage *capturedScreen = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return capturedScreen;
-}
-
-- (CGRect) newFrameForView:(UIView*) uiview withWidth:(float) width andHeight:(float) height
-{
-    return CGRectMake(uiview.frame.origin.x + ((uiview.frame.size.width - width)/2),
-                      uiview.frame.origin.y + ((uiview.frame.size.height - height)/2),
-                      width,
-                      height);
-}
-
 #pragma mark - Delegate Methods
 - (void)handleButtonTouched:(id)sender {
     [self dismissAlertView];
